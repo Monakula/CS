@@ -27,3 +27,13 @@ function showToast() {
     var toast = new bootstrap.Toast(toastEl);
     toast.show();
 }
+
+function addToCart(id, name, img, price, tax) {
+    const item = { id, name, img, price, tax };
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    var toastEl = document.getElementById('cartToast');
+    var toast = new bootstrap.Toast(toastEl);
+    toast.show();
+}
